@@ -1,0 +1,142 @@
+<h2>JavaScript</h2>
+<h4>Closures</h4>
+<ul>
+  <li>Funciones que manejan variables independientes</li>
+  <li>Tipo especial de objeto que combina dos cosas: una función, y el entorno en que se creó esa función</li>
+  <li>Permite asociar algunos datos (el entorno) con una función que opera sobre esos datos.</li>
+  <li>Creación de métodos privados al estilo de OOP.</li>
+</ul>
+
+<pre>
+
+  {{
+    'function creaSumador(x) {
+      return function(y) {
+        return x + y;
+      };
+    }
+    
+    var suma5 = creaSumador(5);
+    var suma10 = creaSumador(10);
+    
+    console.log(suma5(2));  // muestra 7
+    console.log(suma10(2)); // muestra 12'
+  }}
+</pre>
+
+<hr>
+
+<h3>Arquitecturas Escalables</h3>
+<ul>
+  <li>
+    <h4>Estructuras de carpetas -> LIFT</h4>
+    <p><strong>Locate: </strong>Localización rápida e intuitiva dividida por dominios</p>
+    <p><strong>Identify: </strong>Fácil lectura, conocer el propósito de un archivo por su nombre</p>
+    <p><strong>Flat: </strong>Un árbol con pocos niveles de profundidad</p>
+    <p><strong>Try DRY: </strong>Don't Repeat Yourself. Smart and Dummy Components (presentación)</p>
+  </li>
+  <li>
+    <h4>Modularización</h4>
+    <p>Definir por dominio: serie de artefactos relacionados entre sí</p>
+    <p>Tener en cuenta cuáles son singleton y se pone en CORE</p>
+    <p><strong>Growth option 1:</strong> Git Submodules</p>
+    <p><strong>Growth option 2:</strong> Build a registry: package or JS Module: npm Install</p>
+  </li>
+  <li>
+    <h4>Naming, consistency: use the same always</h4>
+    <ul>
+      <li>Be clear</li>
+      <li>Dont add metadata</li>
+      <li>Consider the context</li>
+    </ul>
+    <p>Camel case for variables and functions</p>
+    <p>Dash case for files and folders</p>
+    <p>Title case for clases and Interfaces</p>
+  </li>
+  <li>Patrones de código</li>
+  <li>Manejo de estado: flujo de información</li>
+</ul>
+
+<hr>
+<h3>Micro Frontends</h3>
+<p>Estrategia para modularizar el front</p>
+<ul>
+  <li>Equipos verticales</li>
+  <li>Self contained system</li>
+  <li>Vertical Decomposition</li>
+  <li>UI Composition</li>
+</ul>
+<h5>Ventajas</h5>
+<ul>
+  <li>Independent teams</li>
+  <li>Isolated deployments</li>
+  <li>Self consuming endpoints</li>
+  <li>Tecnologic agnostic</li>
+  <li>Team Ownership</li>
+  <li>Fast Loading</li>
+</ul>
+<h5>Estrategias</h5>
+<ul>
+  <li>Single SPA metaframework</li>
+  <li>Multiple single page applications that live at different URL</li>
+  <li>Iframes with libraries</li>
+  <li>Web components</li>
+</ul>
+<h5>Técnicas</h5>
+<ul>
+  <li>A/B testing</li>
+  <li>Blue Green Deployment</li>
+  <li>Canary Releases: Desviando el tráfico por mercado</li>
+  <li>Feature Toggles: enciende y apaga funcionalidades</li>
+</ul>
+
+<hr>
+
+<h3>Performance: Loading and Runtime</h3>
+<h5>Poblems</h5>
+<ul>
+  <li>Too many interactions with the host</li>
+  <li>Too many dependencies: especially annoying for mobile users with limited bandwidth</li>
+  <li>Poor event handling: if you don’t keep track of them, they can execute repeatedly without your knowledge</li>
+  <li>Inefficient iterations</li>
+  <li>Unorganized code</li>
+</ul>
+
+<h5>Strategies</h5>
+<ul>
+  <li>Test your Website’s Speed</li>
+  <li>HTTP/2: Una única conexión para varias solicitudes. Multiplexación: recibe varios mensajes al mismo tiempo. Server Push</li>
+  <li>Trim your HTML: eliminate unnecesary tags</li>
+  <li>Style changes on last layer: transform</li>
+  <li>Size -> Compress, minify files, Check the bundle, Limit dependencies</li>
+  <li>Use post-load dependency managers -> Require, Webpack</li>
+  <li>Prefer Async and Defer -></li>
+  <li>Animation with requestAnimationFrame</li>
+  <li>Kill events, destroy objects</li>
+  <li>Modularize and Load modules on execution time</li>
+  <li>Image optimization</li>
+  <li>Reduce Latency with a Content Delivery Network CDN</li>
+  <li>Caching</li>
+</ul>
+
+<h5>Tools</h5>
+<ul>
+  <li>Google Closure Compiler: compiles into machine language</li>
+  <li>Size -> Compress, minify files</li>
+  <li>Speed test tool</li>
+</ul>
+
+<hr>
+
+<h5>Authentication</h5>
+<a href="https://carlosazaustre.es/que-es-la-autenticacion-con-token/">carlosazaustre.es</a>
+<ul>
+  <li><h6>Servidor, almacenando la sesión</h6></li>
+  <li><h6>Autenticación sin estado con Tokens</h6> No hay información de estado y la aplicación se vuelve totalmente escalable. Al no utilizar cookies para almacenar la información del usuario, podemos evitar ataques CSRF (Cross-Site Request Forgery) </li>
+  <li>
+    <h6>JWT: Autenticación con JSON Web Tokens</h6>
+    <p><strong>Header:</strong> La primera parte es la cabecera del token, que a su vez tiene otras dos partes, el tipo, en este caso un JWT y la codificación utilizada.</p>
+    <p><strong>Payload:</strong> EL Payload está compuesto por los llamados JWT Claims donde irán colocados la atributos que definen nuestro token.</p>
+    <p><strong>Signature:</strong> Está formada por los anteriores componentes (Header y Payload) cifrados en Base64 con una clave secreta (almacenada en nuestro backend).</p>
+  </li>
+</ul>

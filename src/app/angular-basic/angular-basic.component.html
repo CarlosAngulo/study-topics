@@ -1,0 +1,97 @@
+<div class="jumbotron">
+  <h2>ANGULAR</h2>
+  <p>- Framework: includes a set of functionalities builted in a package > Directives, serivces, pipes, etc, but also third part libraries: typescript, rxjs</p>
+  <p>- Platform: Has a rich ecosystem Karma, Jazmin, Angular CLI, Angular Playground, Angula Universal, TestBed, Material.</p>
+</div>
+
+<h3>Módulo</h3>
+
+<pre>
+  <code class="language-javascript">
+    {{
+      '@NgModule({
+        declarations: [ Components, Directives that belong to the module],
+        imports: [ Module ],
+        providers: [ Services ],
+        bootstrap: [ Root Module which component you want to render. start point ]
+      })' 
+    }}
+  </code>
+</pre>
+
+<h4>Definition</h4>
+<ul>
+  <li>Class, Artefact, Namespace -> Groups related items together</li>
+  <li>Directives, components, serivces, more modules, pipes</li>
+  <li>Divide the app into different domains</li>
+  <li>The basic building blocks of an Angular application are NgModules</li>
+  <li>Los NgModules son contenedores para un bloque cohesivo de código dedicado a un dominio de aplicación, un flujo de trabajo o un conjunto de capacidades estrechamente relacionadas.</li>
+</ul>
+
+
+
+<h3>Directivas</h3>
+
+<pre>
+  <code class="language-javascript">
+    {{
+      '@Directive({
+        selector: [ appHighlight ]
+      })' 
+    }}
+  </code>
+</pre>
+
+<ol>
+  <li>Components—directives with a template. - Container para piezas de negocio. Interfaz - Directiva que tiene asignado un template</li>
+  <li>Structural directives—change the DOM layout by adding and removing DOM elements. NgIf, NgFor, ngSwitch</li>
+  <li>Attribute directives—change the appearance or behavior of an element, component, or another directive. ngClass, NgStyle</li>
+</ol>
+
+<h4>Definition</h4>
+<ul>
+  <li>Se usan para presentación y problemas estructurales.</li>
+  <li>Atributo o marcador en una etiqueta HTML, este atributo está dotando al elemento del DOM que la contiene de un comportamiento, ese comportamiento lo definimos nosotros y se puede utilizar en todos los elementos que queramos.</li>
+</ul>
+
+
+
+<h3>Componentes</h3>
+
+<pre>
+  <code class="language-javascript">
+    {{
+      '@Component({
+        selector: \'app-component\'
+        templateUrl: \'./app-component.html\',
+        styleUrls: [\'./app-component.scss\'],
+        providers:  [ HeroService ]
+      })' 
+    }}
+  </code>
+</pre>
+
+<h4>Definition</h4>
+<ul>
+  <li>Is a directive with a template. It is composed of HTML, CSS, Logic through TS file and a spec.
+      Minimum logic unit in angular.</li>
+</ul>
+
+
+<h3>Pipes</h3>
+
+<pre>
+  <code class="language-javascript">
+    {{
+      '@Pipe({ name: \'pipeName\' })
+      export class ExponentialStrengthPipe implements PipeTransform {
+        transform(value: number, exponent: string): number {...}' 
+    }}
+  </code>
+</pre>
+
+<h4>Definition</h4>
+<ul>
+  <li>A class with a transformation function for the HTML. UPPERCASE. For the view only</li>
+  <li><strong>Asinc:</strong> Pipe that allows you to subscribe in the view to an observable. It unsubscribes as soon as the observable completes. (uppon completion) </li>
+</ul>
