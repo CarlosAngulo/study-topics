@@ -11,7 +11,7 @@
     <li class="nav-item">
         <a class="nav-link disabled" href="#">Disabled</a>
     </li>
-    </ul>
+</ul>
 
 <h2>TsLint</h2>
 <p>Run: ng lint</p>
@@ -47,38 +47,7 @@
 </pre>
 
 <h2>Debounce</h2>
-<pre>
-    {{{<script>
 
-            function alertar(nombre, apellido) {
-                alert(`${nombre} ${apellido}`);
-            }
-    
-            function debounce(debouncedFunction, tiempo) {
-                let timeoutId;
-                return function() {
-                    if ( timeoutId ) {
-                        clearTimeout(timeoutId);
-                    }
-                    const context = this;
-                    const args = arguments;
-                    console.log(debouncedFunction, args);
-                    timeoutId = setTimeout( () => {
-                        debouncedFunction.apply(context, args)
-                    }, tiempo);
-                }
-            }
-    
-            const debouncedAlert = debounce(alertar, 1000);
-    
-            document.querySelector('button').addEventListener('click', function() {
-                debouncedAlert('Carlos', 'Angulo')
-            });
-    
-            let llamado = alertar;
-    
-            llamado.apply(document.head, ['primer', 'second'])
-            
-    
-        </script>} | javascript }}
-</pre>
+<code ngNonBindable>
+    {{vst}}
+</code>
